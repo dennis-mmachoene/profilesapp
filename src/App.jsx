@@ -1,32 +1,41 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showInfo, setShowInfo] = useState(false)
+
+  const toggleInfo = () => {
+    setShowInfo(prev => !prev)
+  }
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>CI/CD Basics</h1>
       </div>
-      <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={toggleInfo}>
+          {showInfo ? 'Hide' : 'Show'} CI/CD Information
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        {showInfo && (
+          <div className="info">
+            <h2>What is CI/CD?</h2>
+            <p>
+              Continuous Integration (CI) is the practice of frequently integrating code changes into a shared repository. 
+              Continuous Deployment (CD) refers to the automated release of software changes to production.
+            </p>
+            <h3>Benefits:</h3>
+            <ul>
+              <li>Faster development cycles</li>
+              <li>Reduced integration issues</li>
+              <li>Higher quality software</li>
+              <li>Improved team collaboration</li>
+            </ul>
+          </div>
+        )}
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click the button above to learn more about CI/CD
       </p>
     </>
   )
