@@ -14,7 +14,9 @@ function App() {
         <h1>CI/CD Basics</h1>
       </div>
       <div className="card">
+      <h2>My name is Dennis</h2>
         <button onClick={toggleInfo}>
+
           {showInfo ? 'Hide' : 'Show'} CI/CD Information
         </button>
         {showInfo && (
